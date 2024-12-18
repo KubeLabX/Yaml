@@ -6,6 +6,7 @@ CodeSphere 애플리케이션 아키텍처를 위한
 
 ## 디렉토리 구조
 ```bash
+├── ingress.yaml          # Ingress 설정
 ├── docker-compose.yaml
 ├── frontend/
 │   ├── fe-deploy.yaml    # 프론트엔드 배포 설정
@@ -25,6 +26,13 @@ CodeSphere 애플리케이션 아키텍처를 위한
 ```
 
 ## 구성 요소
+
+### Ingress
+ingress.yaml 파일은 외부 트래픽을 클러스터 내부 서비스로 라우팅하는 설정을 포함합니다:
+
+/api 경로의 요청을 백엔드 서비스(포트 8000)로 전달
+루트 경로(/)의 요청을 프론트엔드 서비스(포트 3000)로 전달
+kubelabx 네임스페이스에서 동작
 
 ### Docker Compose
 루트 디렉토리의 `docker-compose.yaml` 파일은 로컬에서 연결을 테스트하기 위해 사용한 파일입니다.
