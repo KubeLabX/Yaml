@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: yeonjin0814/backend:v2
+          image: yeonjin0814/backend:v12
           ports:
             - containerPort: 8000
           env:
