@@ -8,6 +8,7 @@ CodeSphere 애플리케이션 아키텍처를 위한
 ```bash
 ├── ingress.yaml          # Ingress 설정
 ├── docker-compose.yaml
+├── nginx.conf            # Nginx 설정 파일
 ├── frontend/
 │   ├── fe-deploy.yaml    # 프론트엔드 배포 설정
 │   └── fe-service.yaml   # 프론트엔드 서비스 설정
