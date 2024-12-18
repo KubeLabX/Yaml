@@ -37,6 +37,8 @@ kubelabx 네임스페이스에서 동작
 
 ### Docker Compose
 루트 디렉토리의 `docker-compose.yaml` 파일은 로컬에서 연결을 테스트하기 위해 사용한 파일입니다.
+### Nginx Configuration
+nginx.conf 파일은 Nginx 웹 서버의 설정을 포함하며, 프론트엔드와 백엔드 서비스로의 트래픽을 적절히 라우팅합니다.
 
 ### frontend
 프론트엔드 디렉토리는 프론트엔드 애플리케이션을 위한 쿠버네티스 매니페스트를 포함합니다:
