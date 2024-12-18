@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: yeonjin0814/frontend:v2
+          image: yeonjin0814/frontend:v3
           ports:
             - containerPort: 3000
           env:
