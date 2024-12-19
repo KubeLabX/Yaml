@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: course-manager-cluster-binding
+subjects:
+  - kind: ServiceAccount
+    name: course-service-account
+    namespace: kubelabx
+roleRef:
+  kind: ClusterRole
+  name: course-manager-cluster-role
+  apiGroup: rbac.authorization.k8s.io
