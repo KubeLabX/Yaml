@@ -13,6 +13,7 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccountName: course-service-account
       containers:
         - name: backend
           image: yeonjin0814/backend:v12
