@@ -63,6 +63,7 @@ postgres 디렉토리는 데이터베이스 설정을 포함합니다:
 - `cluster_rb.yaml`: ServiceAccount와 ClusterRole을 연결하는 ClusterRoleBinding 설정
 
 이 RBAC 설정들은 백엔드에서 쿠버네티스 API를 사용하여 네임스페이스와 파드를 관리하기 위해 필요합니다.
+참고: 이러한 RBAC 설정을 사용한 쿠버네티스 API 연동은 현재 작동하지 않습니다.
 
 ## 사용 방법
 
