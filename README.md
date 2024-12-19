@@ -20,10 +20,9 @@ CodeSphere 애플리케이션 아키텍처를 위한
 │   ├── db-service.yaml   # 데이터베이스 서비스 설정
 │   ├── db-pv.yaml        # 영구 볼륨 설정
 │   └── db-pvc.yaml       # 영구 볼륨 클레임 설정
-├── rbac.yaml             # RBAC 설정 (실험적)
-├── sa.yaml               # 서비스 계정 설정 (실험적)
-├── rb.yaml               # 롤 바인딩 설정 (실험적)
-└── role.yaml             # 롤 설정 (실험적)
+├── sa.yaml               # 서비스 계정 설정
+├── cluster_role.yaml     # 클러스터 롤 설정 (네임스페이스/파드 관리 권한)
+└── cluster_rb.yaml       # 클러스터 롤 바인딩 설정
 ```
 
 ## 구성 요소
@@ -57,14 +56,13 @@ postgres 디렉토리는 데이터베이스 설정을 포함합니다:
 - `db-pv.yaml`: 데이터베이스 저장소를 위한 영구 볼륨 구성
 - `db-pvc.yaml`: 데이터베이스 사용을 위한 영구 볼륨 클레임
 
-### RBAC 파일 (실험적)
-다음 파일들은 쿠버네티스 API 연동을 위해 생성되었으나 현재 사용되지 않습니다:
-- `rbac.yaml`: 역할 기반 접근 제어 설정
-- `sa.yaml`: 서비스 계정 설정
-- `rb.yaml`: 롤 바인딩 설정
-- `role.yaml`: 롤 정의
+### RBAC 파일
+쿠버네티스 API 연동을 위한 RBAC 설정 파일들:
+- `sa.yaml`: ServiceAccount 설정
+- `cluster_role.yaml`: 네임스페이스와 파드 관리를 위한 ClusterRole 설정
+- `cluster_rb.yaml`: ServiceAccount와 ClusterRole을 연결하는 ClusterRoleBinding 설정
 
-참고: 이러한 RBAC 설정을 사용한 쿠버네티스 API 연동은 현재 작동하지 않습니다.
+이 RBAC 설정들은 백엔드에서 쿠버네티스 API를 사용하여 네임스페이스와 파드를 관리하기 위해 필요합니다.
 
 ## 사용 방법
 
@@ -90,4 +88,11 @@ kubectl apply -f backend/
 3. 프론트엔드 배포:
 ```bash
 kubectl apply -f frontend/
+```
+
+4. RBAC 설정 적용:
+```bash
+kubectl apply -f sa.yaml
+kubectl apply -f cluster_role.yaml
+kubectl apply -f cluster_rb.yaml
 ```
